@@ -7,6 +7,6 @@ export class BoardsController {
 
   @Get()
   getAllBoards():string {
-    return "show Test";
+    return 'show Test';
   }
 }
