@@ -1,10 +1,12 @@
 import { Controller, Get } from "@nestjs/common";
+import { BoardsService } from "./boards.service";
 
 @Controller('boards')
 export class BoardsController {
+  constructor(private boardsService: BoardsService) {}
 
   @Get()
-  gettest():string {
-    return "핸들링 테스트 하기";
+  getAllBoards():string {
+    return "show Test";
   }
 }
