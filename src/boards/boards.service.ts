@@ -31,4 +31,13 @@ export class BoardsService {
   getById(id: string): Board {
     return this.boards.find((board) => board.id === id);
   }
+
+  // 게시글 삭제 하기
+  // 삭제 목록 보이게 하기 => 다시 보기
+  // deleteById(id: string): Board[] {
+  //   return (this.boards = this.boards.filter((board) => board.id !== id));
+  // }
+  deleteById(id: string): void {
+    this.boards = this.boards.filter((board) => board.id !== id);
+  }
 }
