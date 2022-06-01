@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Board } from "./board.model";
+import { Board, BoardStatus } from "./board.model";
+import { v1 as uuid } from 'uuid';
+//vi은 버전
 
 @Injectable()
 export class BoardsService {
@@ -7,8 +9,22 @@ export class BoardsService {
   private boards: Board[] = [];
 
   // 모든게시품_getAllBoards
-  // getAllBoards(): Board[](타입) 리턴 값은 어떤 타입이 될 것인지 => 타입을 정해 주어야 한다.
+  // getAllBoards(): Board[](타입) 리턴 값은 어떤 타입이 될 것인지 => 타입을 정해 주어야 한다
   getAllBoards(): Board[] {
     return this.boards;
   }
+  // 게시물 생성
+  creatBoard(title: string, description: string) {
+     const board: Board = {
+       id: uuid(),
+       title,
+       description,
+       status: BoardStatus.PUBLIC
+     }
+      this.boards.push(board);
+     return board;
+  }
+
+
+
 }
