@@ -40,4 +40,11 @@ export class BoardsService {
   deleteById(id: string): void {
     this.boards = this.boards.filter((board) => board.id !== id);
   }
+
+  // 업데이트 하기
+  updateStatus(id: string, status: BoardStatus): Board {
+    const board = this.getById(id);
+    board.status = status;
+    return board;
+  }
 }
