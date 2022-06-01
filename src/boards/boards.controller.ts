@@ -1,10 +1,11 @@
-import { Controller, Get, Post } from "@nestjs/common";
-import { BoardsService } from './boards.service';
-import { Board } from './board.model';
+import { Body, Controller, Get, Post } from "@nestjs/common";
+import { BoardsService } from "./boards.service";
+import { Board } from "./board.model";
 
-@Controller('boards')
+@Controller("boards")
 export class BoardsController {
-  constructor(private boardsService: BoardsService) {}
+  constructor(private boardsService: BoardsService) {
+  }
 
   // @Get()
   // getAllBoards():string {
@@ -18,7 +19,10 @@ export class BoardsController {
   }
 
   @Post()
-  getCreat
+  createBoard(@Body("title") title: string, @Body("description") description: string): Board {
+    return this.boardsService.creatBoard(title, description);
+
+  }
 
 
 }
