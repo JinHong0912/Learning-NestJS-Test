@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Board, BoardStatus } from "./board.model";
+import { Board, BoardStatus } from './board.model';
 import { v1 as uuid } from 'uuid';
 //vi은 버전
 
@@ -15,16 +15,13 @@ export class BoardsService {
   }
   // 게시물 생성
   creatBoard(title: string, description: string) {
-     const board: Board = {
-       id: uuid(),
-       title,
-       description,
-       status: BoardStatus.PUBLIC
-     }
-      this.boards.push(board);
-     return board;
+    const board: Board = {
+      id: uuid(),
+      title,
+      description,
+      status: BoardStatus.PUBLIC,
+    };
+    this.boards.push(board);
+    return board;
   }
-
-
-
 }
