@@ -2,10 +2,16 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Board, BoardStatus } from './board.model';
 import { v1 as uuid } from 'uuid';
 import { CreateBoardDto } from './dto/create-board.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { BoardRepository } from './board.repository';
 //vi은 버전
 
 @Injectable()
 export class BoardsService {
+  constructor(
+    // private을 명시 하여 압묵적으로 프로퍼티 할당
+    @InjectRepository(BoardRepository) private boardRepository: BoardRepository,
+  ) {}
   // private boards: Board = []; 해당의 경우 Board는 한개 이고 Board는 여러개 이기 때문에 Board[] 해준다
   private boards: Board[] = [];
 
