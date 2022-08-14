@@ -27,14 +27,14 @@ export class BoardsService {
     return board;
   }
 
-  //게시글 가지고 온기
+  //게시글 가지고 오기
   getById(id: string): Board {
     const found = this.boards.find((board) => board.id === id);
-
+    console.log(id);
     if (!found) {
       throw new NotFoundException(`Can't find Board with id: ${id}`);
     }
-    return;
+    return found;
   }
 
   // 게시글 삭제 하기
