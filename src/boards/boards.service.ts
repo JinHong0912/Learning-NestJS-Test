@@ -14,7 +14,7 @@ export class BoardsService {
   getAllBoards(): Board[] {
     return this.boards;
   }
-  // 게시물 생성
+  // 게시물 생성 git UP 테스트 진행
   creatBoard(createBaordDto: CreateBoardDto) {
     const { title, description } = createBaordDto;
     const board: Board = {
